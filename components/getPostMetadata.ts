@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import { PostMetadata } from "@/components/PostMetadata";
 
 const getPostMetadata = () : PostMetadata[] => {
-	const folder = "posts/";
+	const folder = "./public/posts/";
 	const markdownPosts = fs.readdirSync(folder).filter((file) => file.endsWith('.md'));
 
 	const posts = markdownPosts.map((fileName) => {
