@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Redis } from "@upstash/redis";
-import getHash from "@/components/getHash";
+import { getHash } from "@/components/utils";
 
 const redis = Redis.fromEnv();
 export const runtime = "edge";

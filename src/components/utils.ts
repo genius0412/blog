@@ -3,7 +3,14 @@ import matter from 'gray-matter'
 import { PostMetadata } from "@/components/PostMetadata";
 import path from 'path';
 
-const getPostMetadata = () : PostMetadata[] => {
+export const getPostContent = async (slug: string) => {
+	const folder = path.join(process.cwd(), "src/posts/");
+	const content = fs.readFileSync(`${folder}${slug}.md`, 'utf8');
+	const mattered = matter(content);
+	return {data: mattered.data, content: mattered.content};
+}
+
+export const getPostMetadata = () : PostMetadata[] => {
 	const folder = path.join(process.cwd(), "src/posts/");
 	const markdownPosts = fs.readdirSync(folder).filter((file) => file.endsWith('.md'));
 
@@ -26,4 +33,13 @@ const getPostMetadata = () : PostMetadata[] => {
 	return posts;
 }
 
-export default getPostMetadata;
+export const getHash = async (ip: string) => {
+	const hashBuffer = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(ip));
+	const hashArray = Array.from(new Uint8Array(hashBuffer));
+	const hash = hashArray.map((b) => b.toString(16).padStart(2, '0'));
+	return hash;
+}
+
+export const prettierDate = (date: string) => {
+	return (new Date(date)).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+}

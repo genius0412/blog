@@ -2,9 +2,8 @@ import { PostMetadata } from './PostMetadata'
 import Link from 'next/link'
 import { Redis } from '@upstash/redis';
 import { FaHeart, FaEye } from "react-icons/fa";
-import prettierDate from './prettierDate';
 import { headers } from 'next/headers'
-import getHash from './getHash';
+import { getHash, prettierDate } from './utils';
 
 const redis = Redis.fromEnv();
 

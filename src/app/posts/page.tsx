@@ -1,4 +1,4 @@
-import getPostMetadata from "@/components/getPostMetadata";
+import { getPostMetadata } from "@/components/utils";
 import PostPreview from "@/components/PostPreview";
 
 export default function Posts() {

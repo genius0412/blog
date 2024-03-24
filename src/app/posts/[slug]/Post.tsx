@@ -1,7 +1,7 @@
 "use client";
 
 import UpdateViewCount from "@/components/UpdateViewCount";
-import prettierDate from "@/components/prettierDate";
+import { prettierDate } from "@/components/utils";
 import Markdown from "markdown-to-jsx";
 import { FaEye, FaHeart } from "react-icons/fa";
 import { useState, useEffect } from 'react';
