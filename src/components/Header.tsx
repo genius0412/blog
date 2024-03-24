@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
-import ProfilePicture from '@/public/images/profile.png';
+import ProfilePicture from '../../public/images/profile.png';
 import { CiSun } from "react-icons/ci";
 import { FaMoon } from "react-icons/fa";
 import { useLocalStorage } from 'usehooks-ts'

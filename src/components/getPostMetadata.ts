@@ -1,9 +1,10 @@
 import fs from 'fs';
 import matter from 'gray-matter'
 import { PostMetadata } from "@/components/PostMetadata";
+import path from 'path';
 
 const getPostMetadata = () : PostMetadata[] => {
-	const folder = "./public/posts/";
+	const folder = path.join(process.cwd(), "src/posts/");
 	const markdownPosts = fs.readdirSync(folder).filter((file) => file.endsWith('.md'));
 
 	const posts = markdownPosts.map((fileName) => {
