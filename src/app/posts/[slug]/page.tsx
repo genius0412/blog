@@ -1,4 +1,5 @@
-import { getPostMetadata, getPostContent } from '@/components/utils';
+import getPostContent from '@/components/getPostContent';
+import getPostMetadata from '@/components/getPostMetadata';
 import { Redis } from '@upstash/redis';
 import Post from './Post';
 

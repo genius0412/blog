@@ -20,9 +20,11 @@ const PostPreview = async (props: PostMetadata) => {
 
 	return (
 		<div key={props.slug} className="rounded-2xl border-green-400 dark:border-amber-200 border-2 px-4 py-3 w-full">
-			<Link href={`/posts/${props.slug}`}>
-				<div className="text-3xl font-extrabold">{props.title}</div>
-			</Link>
+			<div className="text-3xl font-extrabold">
+				<Link href={`/posts/${props.slug}`}>
+					{props.title}
+				</Link>
+			</div>
 			<div className="text-xl dark:text-slate-100 font-medium">{props.subtitle}</div>
 			<div className="flex flex-row text-sm sm:text-md font-normal items-center space-x-1.5 md:space-x-2">
 				<div className="dark:text-slate-400">{prettierDate(props.date)}</div>
