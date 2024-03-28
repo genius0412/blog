@@ -6,8 +6,8 @@ import Header from "@/components/Header";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-	title: "Dohun's Blog",
-	description: "Dohun Kim's Blog",
+	title: "Dohun Kim",
+	description: "Dohun Kim (Genius0412)'s Website",
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
