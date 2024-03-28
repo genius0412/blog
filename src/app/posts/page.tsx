@@ -9,7 +9,7 @@ export default async function Posts() {
 
 	return (
 		<main className="flex min-h-screen w-screen flex-col justify-center items-center">
-			<div className="flex flex-col w-11/12 md:w-3/4 xl:max-w-lg justify-center items-start space-y-3">
+			<div className="flex flex-col w-11/12 md:w-3/4 xl:w-1/2 justify-center items-start space-y-3">
 				<h1 className="pl-2 font-black text-4xl">All Posts</h1>
 				{postPreviews}
 			</div>

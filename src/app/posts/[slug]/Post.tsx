@@ -54,9 +54,9 @@ const Post = (props: any) => {
 						<div className="flex flex-row justify-center items-center space-x-1"><FaHeart onClick={() => toggleClick()} className={"mr-1 cursor-pointer " + (liked ? "fill-red-600" : "fill-black dark:fill-white")} /> {likes} <span className="">like{likes == 1 ? '' : 's'}</span></div>
 					</div>
 				</div>
-				<div className="text-4xl md:text-6xl text-black dark:text-white font-black">{postContent.data.title}</div>
+				<div className="text-4xl md:text-5xl text-black dark:text-white font-black">{postContent.data.title}</div>
 				<div className="text-2xl md:text-3xl text-gray-400">{postContent.data.subtitle}</div>
-				<Markdown className="mt-12 w-full prose prose-h1:m-0 prose-h2:m-0 dark:prose-invert">{postContent.content}</Markdown>
+				<Markdown className="mt-12 w-full prose prose-h1:m-0 prose-h2:m-0 prose-strong:text-emerald-600 dark:prose-strong:text-amber-200  dark:prose-invert">{postContent.content}</Markdown>
 			</div>
 		</div>
 	)
