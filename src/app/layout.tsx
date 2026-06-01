@@ -1,21 +1,44 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+	subsets: ["latin"],
+	variable: "--font-inter",
+	display: "swap",
+});
+
+const fraunces = Fraunces({
+	subsets: ["latin"],
+	variable: "--font-fraunces",
+	display: "swap",
+	axes: ["opsz"],
+});
 
 export const metadata: Metadata = {
-	title: "Dohun Kim",
-	description: "Dohun Kim (Genius0412)'s Website",
+	metadataBase: new URL("https://dohunkim.xyz"),
+	title: {
+		default: "Dohun Kim",
+		template: "%s · Dohun Kim",
+	},
+	description:
+		"Dohun Kim — high school junior in Weston, MA. Published math research, FTC robotics, competitive programming, software, music, and athletics.",
 };
 
-export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
+export default function RootLayout({
+	children,
+	modal,
+}: Readonly<{
+	children: React.ReactNode;
+	modal: React.ReactNode;
+}>) {
 	return (
-		<html lang="en">
-			<body className={inter.className}>
-				<Header/>
+		<html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
+			<body className="font-sans bg-bg text-ink">
+				<Header />
 				{children}
+				{modal}
 			</body>
 		</html>
 	);

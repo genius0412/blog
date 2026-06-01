@@ -4,31 +4,48 @@
 
 @layer base {
 	:root {
-		@apply scrollbar-thin dark:scrollbar-thumb-slate-500 dark:scrollbar-track-blue-900 w-screen h-screen overflow-y-scroll overflow-x-hidden;
+		@apply scrollbar-thin;
 	}
-}
 
-:root {
-	--foreground-rgb: 0, 0, 0;
-	--background-start-rgb: 255, 255, 255;
-	--background-end-rgb: 255, 255, 255;
-}
+	html {
+		@apply overflow-y-scroll overflow-x-hidden;
+	}
 
-:root.dark {
-	--foreground-rgb: 255, 255, 255;
-	--background-start-rgb: 0, 0, 0;
-	--background-end-rgb: 0, 0, 0;
-}
+	body {
+		@apply bg-bg text-ink font-sans antialiased;
+	}
 
-body {
-	color: rgb(var(--foreground-rgb));
-	background: linear-gradient(to bottom,
-			transparent,
-			rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+	h1, h2, h3, h4 {
+		@apply font-serif text-ink;
+	}
+
+	a {
+		@apply text-accent;
+	}
 }
 
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;
+	}
+
+	/* Prose tuning for blog + detail bodies in the warm system. */
+	.prose-warm {
+		@apply prose max-w-none
+			prose-headings:font-serif prose-headings:text-ink
+			prose-p:text-ink prose-li:text-ink
+			prose-a:text-accent prose-a:no-underline hover:prose-a:underline
+			prose-strong:text-accent
+			prose-img:rounded-xl prose-img:border prose-img:border-border;
+	}
+}
+
+/* Respect users who prefer reduced motion: neutralize non-essential animation. */
+@media (prefers-reduced-motion: reduce) {
+	*, *::before, *::after {
+		animation-duration: 0.001ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.001ms !important;
+		scroll-behavior: auto !important;
 	}
 }
