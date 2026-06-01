@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import ProfilePicture from "../../public/images/profile.png";
+import ProfilePicture from "../../public/images/profile.jpg";
 import { useActivePath } from "./useActivePath";
 
 type NavItem = { href: string; name: string };

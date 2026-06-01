@@ -7,7 +7,7 @@ export default function StatStrip() {
 			{profile.stats.map((stat) => (
 				<div
 					key={stat.label}
-					className="rounded-xl border border-border bg-surface px-4 py-4 text-center shadow-soft"
+					className="flex flex-col items-center justify-center rounded-xl border border-border bg-surface px-4 py-4 text-center shadow-soft"
 				>
 					<div className="font-serif text-2xl font-semibold text-accent sm:text-3xl">
 						{stat.value}

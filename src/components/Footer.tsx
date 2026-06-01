@@ -1,4 +1,4 @@
-import { FiGithub, FiMail } from "react-icons/fi";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { profile } from "@/content/data";
 
 // Quiet footer (spec §5.1.6).
@@ -22,6 +22,15 @@ export default function Footer() {
 					>
 						<FiGithub className="h-4 w-4" />
 						GitHub
+					</a>
+					<a
+						href={`https://linkedin.com/in/${profile.linkedin}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						className="inline-flex items-center gap-1.5 hover:text-ink"
+					>
+						<FiLinkedin className="h-4 w-4" />
+						LinkedIn
 					</a>
 				</div>
 				<span>Built with Next.js.</span>

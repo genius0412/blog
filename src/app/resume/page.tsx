@@ -34,9 +34,8 @@ export default function ResumePage() {
 					/>
 				</div>
 				<p className="mt-3 text-sm text-muted">
-					If the viewer is blank, the résumé PDF has not been uploaded yet — drop{" "}
-					<code className="rounded bg-accent-soft px-1 py-0.5 text-accent">public/resume.pdf</code>{" "}
-					into the repo.
+					Last updated:{" "}
+					<code className="rounded bg-accent-soft px-1 py-0.5 text-accent">2026-06-01</code>
 				</p>
 			</main>
 			<Footer />

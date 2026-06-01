@@ -25,6 +25,7 @@ export type PortfolioItem = {
 	description?: string; // 1–2 sentence card summary
 	links?: Link[];
 	tags?: string[];
+	badge?: string | string[]; // emphasized stat chip(s) surfaced on the card (e.g. GPA, a rank)
 	category: Category;
 	featured?: boolean; // surfaced on the home page
 	// No detailSlug flag: an item is "deep" iff an MDX file with this id exists.
@@ -37,6 +38,7 @@ export type Profile = {
 	location: string;
 	email: string;
 	github: string; // username
+	linkedin: string; // linkedin.com/in/<handle>
 	intro: string;
 	skills: { group: string; items: string[] }[];
 	stats: { label: string; value: string }[];
@@ -49,8 +51,9 @@ export const profile: Profile = {
 	location: "Weston, MA",
 	email: "dohunkimofficial@gmail.com",
 	github: "genius0412",
+	linkedin: "traverse",
 	intro:
-		"I'm a junior at Weston High School (4.0) doing published math research through MIT PRIMES STEP, co-captaining FTC robotics, and competing in math and informatics. I also sing a cappella and play tennis — the breadth matters to me as much as the spike.",
+		"I'm a junior at Weston High School, happiest chasing a hard problem — published math research through MIT PRIMES STEP, an FTC robotics co-captaincy that reached the World Championship, and a steady diet of math and programming contests. I like work that's equal parts rigor and craft.",
 	skills: [
 		{ group: "Programming", items: ["C/C++", "JavaScript/TypeScript", "Python", "Java"] },
 		{ group: "Languages", items: ["English (Fluent)", "Korean (Fluent)", "Spanish (Intermediate)"] },
@@ -92,7 +95,7 @@ export const items: PortfolioItem[] = [
 		category: "research",
 		featured: true,
 		description:
-			"Year-long mentored math research in the Senior Group, producing two papers posted to arXiv.",
+			"A year of mentored math research in the Senior Group that produced two papers posted to arXiv.",
 	},
 	{
 		id: "gozinta-boxes",
@@ -113,8 +116,11 @@ export const items: PortfolioItem[] = [
 		end: "2025",
 		category: "research",
 		featured: true,
-		description: "Published research on chip-firing dynamics, posted to arXiv.",
-		links: [{ label: "arXiv", href: "https://arxiv.org/abs/2501.06675" }],
+		description: "Published research on chip-firing dynamics, in Enumerative Combinatorics and Applications (ECA).",
+		links: [
+			{ label: "ECA journal", href: "https://ecajournal.haifa.ac.il/Volume2026/ECA2026_S2A7.pdf" },
+			{ label: "arXiv", href: "https://arxiv.org/abs/2501.06675" },
+		],
 	},
 
 	// ── Robotics ─────────────────────────────────────────────────────────
@@ -140,26 +146,26 @@ export const items: PortfolioItem[] = [
 			"Earned 2nd place for the Motivate Award at the FIRST Tech Challenge World Championship.",
 	},
 	{
-		id: "ftc-states",
-		title: "FTC Massachusetts State Championship — Winning Alliance Captain",
-		start: "2025",
-		end: "2025",
+		id: "mti-2026",
+		title: "Multinational Tech Invitational",
+		start: "2026",
+		end: "2026",
 		category: "robotics",
-		role: "Winning Alliance Captain",
+		role: "Invited",
 	},
 	{
 		id: "mti",
-		title: "Multinational Tech Invitational — playoffs (top 16)",
+		title: "Maryland Tech Invitational — Hardware Mastery Honorable Mention",
 		start: "2025",
 		end: "2025",
 		category: "robotics",
-		role: "Invited; reached playoffs",
+		role: "Invited; reached playoffs (top 16)",
 	},
 	{
 		id: "michiana",
 		title: "Advanced to the Michiana Premier Event",
-		start: "2025",
-		end: "2025",
+		start: "2026",
+		end: "2026",
 		category: "robotics",
 	},
 	{
@@ -180,15 +186,16 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "into-the-deep",
-		title: "Into the Deep — Full Robot CAD",
-		role: "CAD / mechanical design",
+		title: "Into the Deep — Open-Source Claw CAD",
+		role: "Claw CAD / mechanical design",
 		start: "2024",
 		end: "2025",
 		category: "robotics",
-		description: "Full-robot CAD for the 2024–2025 Into the Deep season, modeled in Onshape.",
+		description:
+			"Open-source claw mechanism CAD for the 2024–2025 Into the Deep season, modeled in Onshape and released publicly.",
 		links: [
 			{
-				label: "Onshape CAD",
+				label: "Claw CAD (Onshape)",
 				href: "https://cad.onshape.com/documents/2e5ebebe43c247d2291879a2/w/2564d9489293bfa6bdffefc9/e/33d929603717268545ab0c75",
 			},
 		],
@@ -211,6 +218,13 @@ export const items: PortfolioItem[] = [
 	},
 
 	// ── Mathematics ──────────────────────────────────────────────────────
+	{
+		id: "fma-2026",
+		title: "F=ma 2026 — 15/25",
+		start: "2026",
+		end: "2026",
+		category: "math",
+	},
 	{
 		id: "amc10a-2024",
 		title: "AMC 10A 2024 — 141/150",
@@ -327,6 +341,14 @@ export const items: PortfolioItem[] = [
 		links: [{ label: "configlib.framer.website", href: "https://configlib.framer.website" }],
 	},
 	{
+		id: "solverslib",
+		title: "SolversLib",
+		role: "Docs Contributor",
+		category: "software",
+		description: "Contributor to the documentation for SolversLib, an FTC robotics programming library.",
+		links: [{ label: "docs.seattlesolvers.com", href: "https://docs.seattlesolvers.com" }],
+	},
+	{
 		id: "a11y-checker",
 		title: "A11y Checker — Congressional App Challenge, 2nd place",
 		start: "2024",
@@ -338,9 +360,9 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "voya",
-		title: "Voya — choose-your-own-adventure study game",
+		title: "Voya",
 		category: "software",
-		description: "A choose-your-own-adventure study game.",
+		description: "A Choose-Your-Own-Adventure study game for students, built with Next.js and Tailwind CSS. Created as a final project for AP Physics C.",
 		links: [{ label: "voya.dohunkim.xyz", href: "https://voya.dohunkim.xyz" }],
 	},
 
@@ -379,8 +401,15 @@ export const items: PortfolioItem[] = [
 		start: "2024",
 		end: "present",
 		category: "education",
-		description:
-			"GPA 4.0 (unweighted). AP coursework & exams: Physics C Mechanics & E&M (A), Calculus BC (5), Computer Science A (5), Statistics (A), World History (A).",
+		badge: "GPA 4.0 (unweighted)",
+		description: "AP coursework & exam results:",
+		tags: [
+			"AP Physics C: Mechanics & E&M — A",
+			"AP Calculus BC — 5",
+			"AP Computer Science A — 5",
+			"AP Statistics — A",
+			"AP World History — A",
+		],
 	},
 	{
 		id: "hanyang",
@@ -389,8 +418,8 @@ export const items: PortfolioItem[] = [
 		start: "2020",
 		end: "2021",
 		category: "education",
-		description:
-			"Graduated #1 of 95 and youngest in the cohort; selected for a 1-on-1 AI course under Prof. Ki Hyuk Sung.",
+		badge: ["Graduated #1 of 95", "1-on-1 AI course"],
+		description: "Youngest in the cohort, selected to study under Prof. Ki Hyuk Sung.",
 	},
 ];
 

@@ -1,5 +1,7 @@
-import { FiGithub, FiMail } from "react-icons/fi";
+import Image from "next/image";
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { profile, featuredHighlightIds, itemById } from "@/content/data";
+import ProfilePicture from "../../public/images/profile.jpg";
 import FadeIn from "@/components/motion/FadeIn";
 import Button from "@/components/ui/Button";
 import StatStrip from "@/components/StatStrip";
@@ -22,28 +24,52 @@ export default function Home() {
 						aria-hidden
 						className="pointer-events-none absolute -right-10 -top-10 -z-10 h-64 w-64 rounded-full bg-accent-soft blur-3xl"
 					/>
-					<FadeIn onView={false} y={20}>
-						<h1 className="font-serif text-5xl font-semibold leading-tight text-ink sm:text-6xl">
-							{profile.name}
-						</h1>
-						<p className="mt-4 max-w-2xl text-balance text-xl text-muted sm:text-2xl">
-							{profile.tagline}
-						</p>
-						<p className="mt-2 text-base text-muted">{profile.positioning}</p>
-						<div className="mt-7 flex flex-wrap gap-3">
-							<Button href="/resume" variant="primary">
-								Résumé
-							</Button>
-							<Button href={`https://github.com/${profile.github}`} variant="ghost" external>
-								<FiGithub className="h-4 w-4" />
-								GitHub
-							</Button>
-							<Button href={`mailto:${profile.email}`} variant="ghost" external>
-								<FiMail className="h-4 w-4" />
-								Email
-							</Button>
-						</div>
-					</FadeIn>
+					<div className="flex flex-col gap-10 md:flex-row md:items-center md:gap-12">
+						<FadeIn onView={false} y={20} className="min-w-0 flex-1">
+							<h1 className="font-serif text-5xl font-semibold leading-tight text-ink sm:text-6xl">
+								{profile.name}
+							</h1>
+							<p className="mt-4 text-balance text-xl text-muted sm:text-2xl">
+								{profile.tagline}
+							</p>
+							<p className="mt-2 text-base text-muted">{profile.positioning}</p>
+							<div className="mt-7 flex flex-wrap gap-3">
+								<Button href="/resume" variant="primary">
+									Résumé
+								</Button>
+								<Button href={`https://github.com/${profile.github}`} variant="ghost" external>
+									<FiGithub className="h-4 w-4" />
+									GitHub
+								</Button>
+								<Button href={`https://linkedin.com/in/${profile.linkedin}`} variant="ghost" external>
+									<FiLinkedin className="h-4 w-4" />
+									LinkedIn
+								</Button>
+								<Button href={`mailto:${profile.email}`} variant="ghost" external>
+									<FiMail className="h-4 w-4" />
+									Email
+								</Button>
+							</div>
+						</FadeIn>
+						<FadeIn
+							onView={false}
+							y={20}
+							delay={0.1}
+							className="mx-auto w-full max-w-[240px] shrink-0 md:mx-0 md:w-[300px] md:max-w-none"
+						>
+							<div className="relative aspect-[4/5] w-full overflow-hidden rounded-3xl border border-border shadow-lift">
+								<Image
+									src={ProfilePicture}
+									alt={`Portrait of ${profile.name}`}
+									fill
+									priority
+									placeholder="blur"
+									sizes="(min-width: 768px) 300px, 240px"
+									className="object-cover"
+								/>
+							</div>
+						</FadeIn>
+					</div>
 				</section>
 
 				{/* Intro blurb */}
