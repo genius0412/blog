@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function ResumePage() {
 	return (
 		<>
-			<main className="mx-auto max-w-4xl px-5 pb-16 pt-12 sm:px-8">
+			<main id="main-content" tabIndex={-1} className="mx-auto max-w-4xl px-5 pb-16 pt-12 sm:px-8">
 				<div className="flex flex-wrap items-center justify-between gap-4">
 					<h1 className="font-serif text-4xl font-semibold text-ink">Résumé</h1>
 					<a

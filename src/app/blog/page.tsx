@@ -14,7 +14,7 @@ export default async function Blog() {
 
 	return (
 		<>
-			<main className="mx-auto max-w-3xl px-5 pb-16 pt-12 sm:px-8">
+			<main id="main-content" tabIndex={-1} className="mx-auto max-w-3xl px-5 pb-16 pt-12 sm:px-8">
 				<h1 className="font-serif text-4xl font-semibold text-ink sm:text-5xl">Blog</h1>
 				<p className="mt-3 text-lg text-muted">Notes on building things.</p>
 				<div className="mt-8 space-y-4">

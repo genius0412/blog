@@ -19,7 +19,7 @@ export default function DetailStandalone({
 
 	return (
 		<>
-			<main className="mx-auto max-w-3xl px-5 pb-16 pt-10 sm:px-8">
+			<main id="main-content" tabIndex={-1} className="mx-auto max-w-3xl px-5 pb-16 pt-10 sm:px-8">
 				<Link
 					href="/portfolio"
 					className="inline-flex items-center gap-1 text-sm text-muted hover:text-accent"

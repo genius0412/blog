@@ -16,7 +16,7 @@ export default function Home() {
 
 	return (
 		<>
-			<main className="mx-auto max-w-5xl px-5 sm:px-8">
+			<main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 sm:px-8">
 				{/* Hero */}
 				<section className="relative pb-14 pt-16 sm:pt-24">
 					{/* soft amber accent shape */}

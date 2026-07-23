@@ -16,27 +16,35 @@ const navItems: NavItem[] = [
 const Header = () => {
 	const checkActivePath = useActivePath();
 
+	const onHome = checkActivePath("/");
+
 	return (
 		<header className="sticky top-0 z-40 w-full border-b border-border bg-bg/85 backdrop-blur-sm">
 			<div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5 sm:px-8">
-				<Link href="/" className="flex items-center gap-3">
+				<Link
+					href="/"
+					aria-current={onHome ? "page" : undefined}
+					className="flex items-center gap-3 rounded-md"
+				>
 					<Image
 						src={ProfilePicture}
-						alt="Dohun Kim"
+						alt=""
+						aria-hidden
 						className="h-9 w-9 rounded-full border border-border object-cover"
 					/>
 					<span className="font-serif text-lg font-semibold text-ink">Dohun Kim</span>
 				</Link>
 
-				<nav className="flex items-center gap-5 sm:gap-7">
+				<nav aria-label="Primary" className="flex items-center gap-5 sm:gap-7">
 					{navItems.map((item) => {
 						const active = checkActivePath(item.href);
 						return (
 							<Link
 								key={item.href}
 								href={item.href}
+								aria-current={active ? "page" : undefined}
 								className={
-									"text-sm transition-colors sm:text-base " +
+									"rounded-md text-sm transition-colors sm:text-base " +
 									(active
 										? "font-semibold text-accent"
 										: "text-muted hover:text-ink")

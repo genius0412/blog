@@ -20,6 +20,7 @@ export default function SectionPreview() {
 						>
 							<div className="flex items-center gap-3">
 								<span
+									aria-hidden
 									className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border ${cs.border} ${cs.bg} ${cs.text}`}
 								>
 									<Icon className="h-5 w-5" />
@@ -29,7 +30,7 @@ export default function SectionPreview() {
 							<p className="mt-2 flex-1 text-sm text-muted">{c.tagline}</p>
 							<span className="mt-3 inline-flex items-center gap-1 text-sm font-medium text-accent">
 								view
-								<FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+								<FiArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
 							</span>
 						</Link>
 					);

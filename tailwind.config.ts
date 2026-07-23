@@ -14,8 +14,10 @@ const config: Config = {
 				border: "#ece7e0",
 				ink: "#1f2421",
 				muted: "#6b665f",
+				// Deepened from #c2683f so accent text and white-on-accent buttons
+				// clear WCAG AA (4.5:1) on the light bg — same warm terracotta, richer.
 				accent: {
-					DEFAULT: "#c2683f",
+					DEFAULT: "#b0542c",
 					soft: "#f4e6dd",
 				},
 			},

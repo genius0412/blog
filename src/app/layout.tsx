@@ -36,6 +36,9 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${inter.variable} ${fraunces.variable}`}>
 			<body className="font-sans bg-bg text-ink">
+				<a href="#main-content" className="skip-link">
+					Skip to content
+				</a>
 				<Header />
 				{children}
 				{modal}

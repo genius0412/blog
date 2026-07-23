@@ -22,6 +22,37 @@
 	a {
 		@apply text-accent;
 	}
+
+	/* Visible keyboard focus for interactive elements. A real outline (not a
+	   box-shadow ring) is used so it also shows in Windows High Contrast Mode. */
+	a:focus-visible,
+	button:focus-visible,
+	[tabindex]:focus-visible,
+	input:focus-visible,
+	select:focus-visible,
+	textarea:focus-visible,
+	summary:focus-visible {
+		outline: 2px solid theme("colors.accent.DEFAULT");
+		outline-offset: 2px;
+		border-radius: 0.125rem;
+	}
+
+	/* Elements focused programmatically for context (skip-link target, section
+	   jumps) are given tabindex=-1; don't draw a focus ring around them. */
+	[tabindex="-1"]:focus {
+		outline: none;
+	}
+}
+
+@layer components {
+	/* Skip link: hidden until focused, then pinned top-left above the header. */
+	.skip-link {
+		@apply sr-only;
+	}
+	.skip-link:focus {
+		@apply not-sr-only fixed left-4 top-3 z-[100] rounded-md bg-accent px-4 py-2
+			text-sm font-medium text-white no-underline shadow-lift;
+	}
 }
 
 @layer utilities {
