@@ -46,14 +46,14 @@ export type Profile = {
 
 export const profile: Profile = {
 	name: "Dohun Kim",
-	tagline: "Researcher, builder, and competitor — across math, robotics, and code.",
-	positioning: "High school junior in Weston, MA.",
+	tagline: "I research, build, and compete — across math, robotics, and code.",
+	positioning: "Junior at Weston High School, just outside Boston.",
 	location: "Weston, MA",
 	email: "dohunkimofficial@gmail.com",
 	github: "genius0412",
 	linkedin: "traverse",
 	intro:
-		"I'm a junior at Weston High School, happiest chasing a hard problem — published math research through MIT PRIMES STEP, an FTC robotics co-captaincy that reached the World Championship, and a steady diet of math and programming contests. I like work that's equal parts rigor and craft.",
+		"I'm a junior at Weston High School, and I'm at my best with a hard problem in front of me. That's carried me from published math research at MIT PRIMES STEP, to co-captaining an FTC robotics team all the way to the World Championship, to a stubborn habit of math and programming contests. Underneath all of it is the same instinct: figure out how something actually works, then build it well. When I step away from the keyboard, you'll usually find me singing with my a cappella group or out on the tennis court.",
 	skills: [
 		{ group: "Programming", items: ["C/C++", "JavaScript/TypeScript", "Python", "Java"] },
 		{ group: "Languages", items: ["English (Fluent)", "Korean (Fluent)", "Spanish (Intermediate)"] },
@@ -342,7 +342,7 @@ export const items: PortfolioItem[] = [
 		start: "2024",
 		end: "present",
 		category: "software",
-		description: "Coordinate and build the web presence for the Empower Initiative.",
+		description: "I build and maintain the website for Empower Initiative, a student-run tutoring nonprofit.",
 		links: [
 			{ label: "empowerinit.org", href: "https://empowerinit.org" },
 			{ label: "GitHub", href: "https://github.com/genius0412/empower" },
@@ -353,7 +353,7 @@ export const items: PortfolioItem[] = [
 		title: "FTCDesign",
 		role: "Major Contributor",
 		category: "software",
-		description: "Major contributor to FTCDesign, a resource for the FTC robotics community.",
+		description: "One of the main contributors to FTCDesign — a design-resource hub the FTC robotics community actually leans on.",
 		links: [{ label: "ftcdesign.org", href: "https://www.ftcdesign.org" }],
 	},
 	{
@@ -361,7 +361,7 @@ export const items: PortfolioItem[] = [
 		title: "Configlib",
 		role: "Major Contributor",
 		category: "software",
-		description: "Major contributor to Configlib.",
+		description: "Major contributor to Configlib, a configuration library that makes setting up an FTC robot a lot less painful.",
 		links: [{ label: "configlib.framer.website", href: "https://configlib.framer.website" }],
 	},
 	{
@@ -369,7 +369,7 @@ export const items: PortfolioItem[] = [
 		title: "SolversLib",
 		role: "Docs Contributor",
 		category: "software",
-		description: "Contributor to the documentation for SolversLib, an FTC robotics programming library.",
+		description: "I write and maintain the docs for SolversLib, an FTC robotics programming library.",
 		links: [{ label: "docs.seattlesolvers.com", href: "https://docs.seattlesolvers.com" }],
 	},
 	{

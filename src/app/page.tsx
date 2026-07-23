@@ -86,7 +86,7 @@ export default function Home() {
 				<section className="py-14">
 					<FadeIn>
 						<h2 className="font-serif text-2xl font-semibold text-ink">Explore</h2>
-						<p className="mt-1 text-muted">A general overview — open any area to go deeper.</p>
+						<p className="mt-1 text-muted">A quick map of what I get up to — open any area for the full story.</p>
 					</FadeIn>
 					<FadeIn className="mt-6">
 						<SectionPreview />
@@ -96,7 +96,7 @@ export default function Home() {
 				{/* Featured highlights */}
 				<section className="border-t border-border py-14">
 					<FadeIn>
-						<h2 className="font-serif text-2xl font-semibold text-ink">Featured</h2>
+						<h2 className="font-serif text-2xl font-semibold text-ink">A few highlights</h2>
 					</FadeIn>
 					<div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
 						{highlights.map((item, i) => (
