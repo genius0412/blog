@@ -69,7 +69,7 @@ export const profile: Profile = {
 };
 
 // Home "featured highlights" — curated, given visual weight (spec §5.1.5).
-export const featuredHighlightIds = ["gozinta-boxes", "chip-firing", "ftc-worlds"];
+export const featuredHighlightIds = ["dsim", "gozinta-boxes", "ftc-worlds"];
 
 // Section order + labels for the home previews and portfolio (spec §5.2).
 export const categoryMeta: { id: Category; label: string; tagline: string }[] = [
@@ -147,11 +147,15 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "mti-2026",
-		title: "Multinational Tech Invitational",
+		title: "Multinational Tech Invitational 2026 — Mechatronics Synergy Award Winner",
 		start: "2026",
 		end: "2026",
 		category: "robotics",
+		featured: true,
 		role: "Invited",
+		badge: "Inaugural Mechatronics Synergy Award",
+		description:
+			"Won the inaugural Mechatronics Synergy Award at the 2026 Multinational Tech Invitational.",
 	},
 	{
 		id: "mti",
@@ -163,10 +167,14 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "michiana",
-		title: "Advanced to the Michiana Premier Event",
+		title: "Michiana Premier Event 2026 — Croft Division Finalist & Control Award (1st)",
 		start: "2026",
 		end: "2026",
 		category: "robotics",
+		featured: true,
+		badge: ["1st Place — Control Award", "Croft Division Finalist"],
+		description:
+			"Reached the Croft Division finals as an alliance partner and took 1st place for the Control Award.",
 	},
 	{
 		id: "weston-robotics-council",
@@ -311,6 +319,22 @@ export const items: PortfolioItem[] = [
 	},
 
 	// ── Software ─────────────────────────────────────────────────────────
+	{
+		id: "dsim",
+		title: "DSIM — Real-Time 2-Player Robotics Game",
+		org: "DSIM",
+		role: "Founder & Main Programmer",
+		start: "2025",
+		end: "present",
+		category: "software",
+		featured: true,
+		badge: ["527 tests passing", "~39k lines of TypeScript", "Real-time online multiplayer", "Glicko-2 ranked ladder"],
+		description:
+			"A browser-based, real-time 2-player robotics driving game I founded and program. An authoritative WebSocket server runs the match at 30 Hz over a deterministic, serializable physics sim; players face off 1v1 (and 2v2) through skill-based matchmaking with a Glicko-2 ranked ladder, seasons, friends, presence, and saved replays. Two game modes ship today, plus a packaged desktop build.",
+		links: [
+			{ label: "GitHub", href: "https://github.com/genius0412/dsim" },
+		],
+	},
 	{
 		id: "empower",
 		title: "Empower Initiative",
