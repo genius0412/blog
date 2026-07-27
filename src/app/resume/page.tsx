@@ -6,7 +6,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
 	title: "Résumé",
 	description:
-		"Dohun Kim's résumé — math research, FTC robotics leadership, competitive programming, and software projects. Viewable in-page or downloadable as a PDF.",
+		"Dohun Kim's résumé: math research, FTC robotics, competitive programming, and software projects. Readable in-page or downloadable as a PDF.",
 	path: "/resume",
 });
 

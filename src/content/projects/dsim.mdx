@@ -10,14 +10,14 @@ links:
     href: "https://github.com/genius0412/dsim"
 ---
 
-> DSIM is a browser-based, real-time robotics driving game built around the FIRST Tech Challenge *DECODE* game. I founded it and write the bulk of the code — the simulation, the networking, the ranked backend, and the interface.
+> DSIM is a browser-based robotics driving game built around the FIRST Tech Challenge *DECODE* game. I founded it and write most of the code: the simulation, the networking, the ranked backend, and the interface.
 
-**Head-to-head, in real time.** Two drivers face off online (1v1, with 2v2 also supported) through skill-based matchmaking. An authoritative Node + WebSocket server runs the match and streams delta-encoded snapshots at 30 Hz, so both clients stay in sync while the server stays the single source of truth.
+Two drivers face off online, 1v1 or 2v2, matched by skill. A Node WebSocket server is authoritative — it runs the match and streams delta-encoded snapshots at 30 Hz, so both clients stay in sync and the server stays the single source of truth.
 
-**A real physics engine underneath.** The core is a pure, deterministic, serializable state machine: it consumes per-tick robot commands plus a seeded PRNG and never touches the DOM or the clock. That determinism is what makes authoritative netcode, saved replays, and a large automated test suite possible. Rendering, input, and the React UI all sit on top of it, and the physics/scoring already generalize across robot counts and multiple game modes.
+Underneath that is the simulation, a pure state machine that takes per-tick robot commands and a seeded PRNG and never touches the DOM or the clock. Keeping it deterministic and serializable is what makes the authoritative netcode, the saved replays, and the test suite possible at all. Rendering, input, and the React UI sit on top, and the physics and scoring already generalize across different robot counts and game modes.
 
-**Ranked, with a real rating system.** Matches feed a Glicko-2 ladder (the chess.com model — each rating carries a deviation, not just a single number), with seasons, per-game leaderboards, friends, live presence, and match history persisted in Postgres (Neon).
+Matches feed a Glicko-2 ladder, the same system chess.com uses, where a rating carries a deviation instead of being a single number. Seasons, per-game leaderboards, friends, live presence, and match history are persisted in Postgres on Neon.
 
-**Verified, not vibes.** The project ships a headless verification suite of **527 passing tests** covering spawn layout, drive kinematics, scoring and penalties, match phases, and the multiplayer room lifecycle — currently all green. Across the sim, netcode, server, and UI it's roughly **39,000 lines of TypeScript/React**.
+There's a headless test suite of 527 tests covering spawn layout, drive kinematics, scoring and penalties, match phases, and the multiplayer room lifecycle. All of them currently pass. The sim, netcode, server, and UI come to roughly 39,000 lines of TypeScript and React.
 
-**Tech.** TypeScript, React, and Vite on the front end; Rapier2D for physics; a Node WebSocket server with a Postgres/Neon-backed ranked and account layer; and an Electron desktop build alongside the web app.
+The stack is TypeScript, React, and Vite on the front end, Rapier2D for physics, a Node WebSocket server, Postgres on Neon for ranked play and accounts, and an Electron build for desktop.

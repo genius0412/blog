@@ -14,7 +14,7 @@ import { SITE_NAME, SITE_URL, absoluteUrl, pageMetadata, personJsonLd } from "@/
 
 export const metadata: Metadata = pageMetadata({
 	description:
-		"Dohun Kim is a high school junior in Weston, MA — published math research through MIT PRIMES STEP, FTC robotics co-captain, USACO Gold, and a builder of web and simulation software.",
+		"Dohun Kim is a junior at Weston High School in Massachusetts. Two published math papers through MIT PRIMES STEP, co-captain of FTC team #22489, USACO Gold, and a handful of software projects.",
 	path: "/",
 });
 
@@ -120,7 +120,7 @@ export default function Home() {
 				<section className="py-14">
 					<FadeIn>
 						<h2 className="font-serif text-2xl font-semibold text-ink">Explore</h2>
-						<p className="mt-1 text-muted">A quick map of what I get up to — open any area for the full story.</p>
+						<p className="mt-1 text-muted">Each area opens into the full list.</p>
 					</FadeIn>
 					<FadeIn className="mt-6">
 						<SectionPreview />

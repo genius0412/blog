@@ -46,14 +46,14 @@ export type Profile = {
 
 export const profile: Profile = {
 	name: "Dohun Kim",
-	tagline: "I research, build, and compete — across math, robotics, and code.",
+	tagline: "Math research, FTC robotics, and competitive programming.",
 	positioning: "Junior at Weston High School, just outside Boston.",
 	location: "Weston, MA",
 	email: "dohunkimofficial@gmail.com",
 	github: "genius0412",
 	linkedin: "traverse",
 	intro:
-		"I'm a junior at Weston High School, and I'm at my best with a hard problem in front of me. That's carried me from published math research at MIT PRIMES STEP, to co-captaining an FTC robotics team all the way to the World Championship, to a stubborn habit of math and programming contests. Underneath all of it is the same instinct: figure out how something actually works, then build it well. When I step away from the keyboard, you'll usually find me singing with my a cappella group or out on the tennis court.",
+		"I'm a junior at Weston High School. I spent a year doing math research at MIT PRIMES STEP, which produced two papers on arXiv. I co-captain FTC team #22489; we made it to the World Championship. I also compete in math and programming contests, sing with the Town Criers, and play on the school tennis team.",
 	skills: [
 		{ group: "Programming", items: ["C/C++", "JavaScript/TypeScript", "Python", "Java"] },
 		{ group: "Languages", items: ["English (Fluent)", "Korean (Fluent)", "Spanish (Intermediate)"] },
@@ -132,7 +132,7 @@ export const items: PortfolioItem[] = [
 		end: "2026",
 		category: "robotics",
 		description:
-			"Co-captain of a competitive FIRST Tech Challenge team — leading design, strategy, and the team's run to the World Championship.",
+			"Co-captain of a FIRST Tech Challenge team, leading design and strategy. We reached the World Championship.",
 	},
 	{
 		id: "ftc-worlds",
@@ -353,7 +353,7 @@ export const items: PortfolioItem[] = [
 		title: "FTCDesign",
 		role: "Major Contributor",
 		category: "software",
-		description: "One of the main contributors to FTCDesign — a design-resource hub the FTC robotics community actually leans on.",
+		description: "One of the main contributors to FTCDesign, a design-resource hub for FTC teams.",
 		links: [{ label: "ftcdesign.org", href: "https://www.ftcdesign.org" }],
 	},
 	{

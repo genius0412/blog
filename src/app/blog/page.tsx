@@ -8,8 +8,7 @@ import { SITE_NAME, SITE_URL, absoluteUrl, pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
 	title: "Blog",
-	description:
-		"Notes on building things — writing by Dohun Kim on software, hardware, and the projects he takes apart along the way.",
+	description: "Notes on building things. Posts by Dohun Kim about software and hardware projects.",
 	path: "/blog",
 });
 

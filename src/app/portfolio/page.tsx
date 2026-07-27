@@ -11,7 +11,7 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
 	title: "Portfolio",
 	description:
-		"A full overview of Dohun Kim's work across math research, FTC robotics, competition math, competitive programming, software, music, and athletics.",
+		"Everything Dohun Kim works on, by area: math research, FTC robotics, competition math, competitive programming, software, music, and athletics.",
 	path: "/portfolio",
 });
 
@@ -22,9 +22,8 @@ export default function PortfolioPage() {
 				<section className="pb-8 pt-12 sm:pt-16">
 					<h1 className="font-serif text-4xl font-semibold text-ink sm:text-5xl">Portfolio</h1>
 					<p className="mt-3 max-w-2xl text-lg text-muted">
-						A fuller picture of what I&apos;ve been up to — across research, robotics, math,
-						code, music, and athletics. Anything with a deeper story behind it opens into its
-						own page.
+						Everything, by area: research, robotics, math, code, music, and athletics.
+						Items with a write-up open into their own page.
 					</p>
 					<div className="mt-6 flex flex-wrap gap-2">
 						{profile.skills.flatMap((g) => g.items).map((s) => (
