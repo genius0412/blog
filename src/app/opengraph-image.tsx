@@ -248,8 +248,14 @@ export default async function OpengraphImage() {
 									// row sitting at different heights.
 									justifyContent: "flex-start",
 									width: "33.333%",
-									height: 108,
-									padding: "22px 22px 0",
+									// No fixed height. With one, a two-line label ("Published
+									// papers (arXiv)", "FTC Worlds — Motivate Award") ran to
+									// within 4px of the rule below it while a one-line label
+									// had 23px — the cell was sized for the short case. Real
+									// bottom padding plus content-driven height gives every
+									// label the same clearance; rows in a wrapped flex
+									// container still stretch to a common height.
+									padding: "20px 22px 18px",
 									borderRight: `1px solid ${HAIRLINE}`,
 									borderBottom: `1px solid ${HAIRLINE}`,
 								}}
