@@ -7,7 +7,9 @@ export default function StatStrip() {
 			{profile.stats.map((stat) => (
 				<div
 					key={stat.label}
-					className="flex flex-col items-center justify-center rounded-xl border border-border bg-surface px-4 py-4 text-center shadow-soft"
+					// px-3 rather than px-4: at the 6-column breakpoint cells are 150px,
+					// and "141/150" at text-3xl left only 4px of clearance inside px-4.
+					className="flex flex-col items-center justify-center rounded-xl border border-border bg-surface px-3 py-4 text-center shadow-soft"
 				>
 					<div className="font-serif text-2xl font-semibold text-accent sm:text-3xl">
 						{stat.value}

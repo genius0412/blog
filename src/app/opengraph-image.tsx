@@ -21,18 +21,10 @@ const CREAM = "#faf8f5";
 const MUTED = "#a49d94";
 const ACCENT = "#e0824c";
 const HAIRLINE = "rgba(250,248,245,0.14)";
-// Low enough to stay invisible where the grid crosses the portrait, high enough
-// to read as tooth on the ink.
-const GRID_LINE = "rgba(250,248,245,0.038)";
+const PANEL = "rgba(250,248,245,0.028)";
 
 /** Width of the portrait panel on the right edge. */
 const PHOTO_W = 424;
-
-/** Graph-paper pitch, px. Drawn as individual rules rather than a repeating
- *  gradient because satori's gradient parser doesn't handle those. */
-const GRID_PITCH = 48;
-const GRID_X = Array.from({ length: Math.ceil(size.width / GRID_PITCH) }, (_, i) => (i + 1) * GRID_PITCH);
-const GRID_Y = Array.from({ length: Math.ceil(size.height / GRID_PITCH) }, (_, i) => (i + 1) * GRID_PITCH);
 
 /** Corner crop marks. */
 const MARK_INSET = 40;
@@ -126,8 +118,7 @@ export default async function OpengraphImage() {
 			>
 				{/* ── Portrait ──────────────────────────────────────────────────────
 				    Bled off the right edge and faded into the ground so it reads as
-				    part of the card rather than a pasted-on box. Drawn first so the
-				    graph-paper grid can run across it. */}
+				    part of the card rather than a pasted-on box. */}
 				{portrait ? (
 					<div
 						style={{
@@ -168,40 +159,6 @@ export default async function OpengraphImage() {
 					</div>
 				) : null}
 
-				{/* ── Graph-paper texture ───────────────────────────────────────────
-				    A faint engineering grid for a page about math and robots, not
-				    wallpaper. Runs over the portrait as well: stopping it at the
-				    photo's edge left a visible vertical seam where the texture simply
-				    ended. At this alpha it's tooth on the ink and invisible on skin. */}
-				{GRID_X.map((x) => (
-					<div
-						key={`v${x}`}
-						style={{
-							position: "absolute",
-							top: 0,
-							bottom: 0,
-							left: x,
-							width: 1,
-							display: "flex",
-							backgroundColor: GRID_LINE,
-						}}
-					/>
-				))}
-				{GRID_Y.map((y) => (
-					<div
-						key={`h${y}`}
-						style={{
-							position: "absolute",
-							left: 0,
-							right: 0,
-							top: y,
-							height: 1,
-							display: "flex",
-							backgroundColor: GRID_LINE,
-						}}
-					/>
-				))}
-
 				{/* ── Crop marks ────────────────────────────────────────────────────
 				    Opposite corners only. The bottom-right one sits over the portrait
 				    on purpose: it frames the whole card, not the text column. */}
@@ -218,7 +175,7 @@ export default async function OpengraphImage() {
 						flexDirection: "column",
 						justifyContent: "space-between",
 						width: "100%",
-						padding: "70px 72px 60px",
+						padding: "70px 72px 56px",
 						paddingRight: 72 + contentRight,
 					}}
 				>
@@ -241,7 +198,7 @@ export default async function OpengraphImage() {
 						<div
 							style={{
 								fontFamily: serifFamily,
-								fontSize: 92,
+								fontSize: 88,
 								fontWeight: 700,
 								color: CREAM,
 								letterSpacing: "-0.025em",
@@ -252,14 +209,17 @@ export default async function OpengraphImage() {
 						</div>
 						{/* Short accent rule under the name, tying the display type back
 						    to the crop marks and the stat values. */}
-						<div style={{ display: "flex", marginTop: 22, width: 84, height: 4, backgroundColor: ACCENT }} />
+						<div style={{ display: "flex", marginTop: 20, width: 84, height: 4, backgroundColor: ACCENT }} />
 						<div
 							style={{
-								marginTop: 22,
-								fontSize: 29,
+								marginTop: 20,
+								fontSize: 28,
 								lineHeight: 1.3,
 								color: MUTED,
-								maxWidth: 620,
+								// Narrow enough to break the tagline into two balanced lines.
+								// At the column's full width it wrapped with "programming."
+								// stranded alone on line two.
+								maxWidth: 452,
 							}}
 						>
 							{profile.tagline}
@@ -274,7 +234,7 @@ export default async function OpengraphImage() {
 							flexWrap: "wrap",
 							borderTop: `1px solid ${HAIRLINE}`,
 							borderLeft: `1px solid ${HAIRLINE}`,
-							backgroundColor: "rgba(250,248,245,0.028)",
+							backgroundColor: PANEL,
 						}}
 					>
 						{stats.map((s) => (
@@ -288,8 +248,8 @@ export default async function OpengraphImage() {
 									// row sitting at different heights.
 									justifyContent: "flex-start",
 									width: "33.333%",
-									height: 112,
-									padding: "24px 22px 0",
+									height: 108,
+									padding: "22px 22px 0",
 									borderRight: `1px solid ${HAIRLINE}`,
 									borderBottom: `1px solid ${HAIRLINE}`,
 								}}
@@ -297,7 +257,7 @@ export default async function OpengraphImage() {
 								<div
 									style={{
 										fontFamily: serifFamily,
-										fontSize: 38,
+										fontSize: 36,
 										fontWeight: 700,
 										color: ACCENT,
 										lineHeight: 1,
@@ -305,7 +265,7 @@ export default async function OpengraphImage() {
 								>
 									{s.value}
 								</div>
-								<div style={{ marginTop: 9, fontSize: 17, color: MUTED, lineHeight: 1.2 }}>
+								<div style={{ marginTop: 8, fontSize: 16, color: MUTED, lineHeight: 1.2 }}>
 									{s.label}
 								</div>
 							</div>
