@@ -1,23 +1,61 @@
 ---
 id: dsim
-title: "DSIM — Real-Time 2-Player Robotics Game"
+title: "DSIM — Online 2D FTC Driving Simulator"
 kind: project
 date: "2025–present"
-description: "A browser-based, real-time 2-player robotics driving game — founder and main programmer."
+description: "A browser-based 2D driving simulator for the FIRST Tech Challenge games DECODE and Chain Reaction — founder and main programmer."
 role: "Founder & Main Programmer — architecture, physics/scoring sim, netcode, ranked backend, and UI."
 links:
+  - label: "playdsim.com"
+    href: "https://www.playdsim.com"
   - label: "GitHub"
     href: "https://github.com/genius0412/dsim"
 ---
 
-> DSIM is a browser-based robotics driving game built around the FIRST Tech Challenge *DECODE* game. I founded it and write most of the code: the simulation, the networking, the ranked backend, and the interface.
+> DSIM is a browser-based 2D driving simulator for FIRST Tech Challenge, covering both DECODE and Chain Reaction. I founded it and write most of the code: the simulation, the networking, the ranked backend, and the interface.
 
-Two drivers face off online, 1v1 or 2v2, matched by skill. A Node WebSocket server is authoritative — it runs the match and streams delta-encoded snapshots at 30 Hz, so both clients stay in sync and the server stays the single source of truth.
+You can drive a full match solo to practice, run co-op with a partner, or queue for ranked 1v1 and 2v2 against someone matched to your skill. Matches are saved as replays, and results feed per-game leaderboards and a ranked ladder.
 
-Underneath that is the simulation, a pure state machine that takes per-tick robot commands and a seeded PRNG and never touches the DOM or the clock. Keeping it deterministic and serializable is what makes the authoritative netcode, the saved replays, and the test suite possible at all. Rendering, input, and the React UI sit on top, and the physics and scoring already generalize across different robot counts and game modes.
+## Architecture, and why
 
-Matches feed a Glicko-2 ladder, the same system chess.com uses, where a rating carries a deviation instead of being a single number. Seasons, per-game leaderboards, friends, live presence, and match history are persisted in Postgres on Neon.
+### The simulation is deterministic on purpose
 
-There's a headless test suite of 527 tests covering spawn layout, drive kinematics, scoring and penalties, match phases, and the multiplayer room lifecycle. All of them currently pass. The sim, netcode, server, and UI come to roughly 39,000 lines of TypeScript and React.
+The core is a pure state machine. It takes per-tick robot commands and a seeded PRNG and returns the next state; it never reads the clock and never touches the DOM.
 
-The stack is TypeScript, React, and Vite on the front end, Rapier2D for physics, a Node WebSocket server, Postgres on Neon for ranked play and accounts, and an Electron build for desktop.
+That single constraint is what makes everything else possible. A server can re-run the same inputs and get the same match, which is what "authoritative" actually requires. A replay becomes just the input log rather than a recording. And the whole simulation can be tested headlessly, with no browser involved. Rendering, input handling, and the React UI all sit on top and are free to be impure, because none of them can affect the outcome.
+
+### The server decides what happened; clients only draw it
+
+A Node WebSocket server runs the match and streams delta-encoded snapshots at 30 Hz. Clients render what they receive and send input back. They never compute scoring.
+
+The same principle governs the HTTP API. The public endpoints are read-only — leaderboards, records, replays — and no score is ever written through them. Records and ratings are written only by the authoritative match loop on the server. A modified client has nowhere to submit a fake result.
+
+### Matches are segregated by build
+
+Matchmaking pools are keyed by build ID and release channel, not just by mode. Two clients running different builds are running different simulation code, so putting them in one authoritative match would desync it. Alpha builds queue separately from stable ones, and alpha results are never persisted — balance changes still in development shouldn't move a real ladder.
+
+### Ranked uses Glicko-2 rather than Elo
+
+A Glicko-2 rating carries a deviation alongside the number, so the system distinguishes a player it has measured across two hundred matches from one it has measured twice. New and returning players converge quickly without distorting everyone around them.
+
+### Rooms are region-aware
+
+The server runs in several Fly regions. A room code carries the region hosting it, so the code alone is enough to route a joining player to the right server instead of across an ocean.
+
+### The second game was added additively
+
+Chain Reaction shipped without disturbing DECODE. The `game` parameter is appended only for Chain Reaction, and the server treats its absence as DECODE, so existing URLs stayed byte-identical and older clients kept working. Boards, seasons, and records are partitioned per game.
+
+### Determinism pays for the test suite
+
+There are 527 headless tests covering spawn layout, drive kinematics, scoring and penalties, match phases, and the multiplayer room lifecycle. None of them need a browser or a real opponent, which is a direct consequence of the sim being pure.
+
+## What it changed
+
+Chain Reaction is new, and teams have to commit to a robot design long before they have much time on a real field. Being able to drive the game in a browser moved that conversation earlier, and playing 2v2 in particular turned out to be the fastest way for people to actually understand the game.
+
+Two conclusions came out of it repeatedly. The first is that Catalysts matter far more than they appear to on paper — a few matches make it obvious in a way that reading the manual does not, and teams who worked that out in the sim started designing robots specifically to handle Catalysts well. The second is that crossing the terrain is a requirement rather than an option: the center space is limiting enough that a robot which can't get over the terrain has very little of the field left to play.
+
+## Stack
+
+TypeScript, React, and Vite on the front end. Rapier2D for physics. A Node WebSocket server deployed to Fly, with accounts, ranked play, and match history in Postgres on Neon. There's an Electron build alongside the web app.

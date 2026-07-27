@@ -321,17 +321,21 @@ export const items: PortfolioItem[] = [
 	// ── Software ─────────────────────────────────────────────────────────
 	{
 		id: "dsim",
-		title: "DSIM — Real-Time 2-Player Robotics Game",
+		// Matches the product's own name on playdsim.com. The old title said
+		// "Real-Time 2-Player", which undersold it — solo, duo, 1v1 and 2v2 all ship.
+		title: "DSIM — Online 2D FTC Driving Simulator",
 		org: "DSIM",
 		role: "Founder & Main Programmer",
 		start: "2025",
 		end: "present",
 		category: "software",
 		featured: true,
-		badge: ["527 tests passing", "~39k lines of TypeScript", "Real-time online multiplayer", "Glicko-2 ranked ladder"],
+		// No static `badge`: the player and match counts are fetched live from
+		// DSIM's /api/stats at render time (see src/content/badges.ts).
 		description:
-			"A browser-based, real-time 2-player robotics driving game I founded and program. An authoritative WebSocket server runs the match at 30 Hz over a deterministic, serializable physics sim; players face off 1v1 (and 2v2) through skill-based matchmaking with a Glicko-2 ranked ladder, seasons, friends, presence, and saved replays. Two game modes ship today, plus a packaged desktop build.",
+			"A browser-based 2D driving simulator for the FIRST Tech Challenge games DECODE and Chain Reaction. Teams practice solo or face off online, 1v1 and 2v2, on a ranked ladder. I founded it and write most of the code.",
 		links: [
+			{ label: "playdsim.com", href: "https://www.playdsim.com" },
 			{ label: "GitHub", href: "https://github.com/genius0412/dsim" },
 		],
 	},

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FiArrowRight, FiStar } from "react-icons/fi";
 import type { PortfolioItem } from "@/content/data";
 import { hasDetail, detailHref } from "@/content/mdx";
+import { badgesFor } from "@/content/badges";
 import LinkList from "./ui/LinkList";
 import Pill from "./ui/Pill";
 import { categoryStyle } from "./ui/categoryStyle";
@@ -17,9 +18,10 @@ function formatDates(item: PortfolioItem): string | null {
 //   deep  → MDX file exists  → card + "read more →"
 //   rich  → has description/links → card, no read-more
 //   line  → bare facts → single row, no card, no link-out
-export default function PortfolioItemView({ item }: { item: PortfolioItem }) {
+export default async function PortfolioItemView({ item }: { item: PortfolioItem }) {
 	const deep = hasDetail(item.id);
-	const rich = !deep && Boolean(item.description || item.links?.length || item.tags?.length || item.badge);
+	const badges = await badgesFor(item);
+	const rich = !deep && Boolean(item.description || item.links?.length || item.tags?.length || badges.length);
 	const dates = formatDates(item);
 	const cs = categoryStyle[item.category];
 
@@ -56,9 +58,9 @@ export default function PortfolioItemView({ item }: { item: PortfolioItem }) {
 				{dates ? <span className="text-sm text-muted">{dates}</span> : null}
 			</div>
 			{item.role ? <p className="mt-0.5 text-sm text-muted">{item.role}</p> : null}
-			{item.badge ? (
+			{badges.length ? (
 				<div className="mt-2 flex flex-wrap gap-2">
-					{(Array.isArray(item.badge) ? item.badge : [item.badge]).map((b) => (
+					{badges.map((b) => (
 						<Pill key={b} accent>
 							{b}
 						</Pill>
