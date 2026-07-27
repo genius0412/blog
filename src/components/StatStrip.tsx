@@ -14,7 +14,14 @@ export default function StatStrip() {
 					<div className="font-serif text-2xl font-semibold text-accent sm:text-3xl">
 						{stat.value}
 					</div>
-					<div className="mt-1 text-xs leading-snug text-muted">{stat.label}</div>
+					{/* Reserve two lines for every label. Cells are vertically centred,
+					    so a label that wraps makes its block taller and lifts its value
+					    above the ones beside it — "FTC Worlds (Motivate)" sat 8px higher
+					    than the rest. A common minimum height keeps every cell
+					    structurally identical, wrapped or not. */}
+					<div className="mt-1 min-h-[2.75em] text-xs leading-snug text-muted">
+						{stat.label}
+					</div>
 				</div>
 			))}
 		</div>

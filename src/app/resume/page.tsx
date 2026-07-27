@@ -38,7 +38,7 @@ export default function ResumePage() {
 				</div>
 				<p className="mt-3 text-sm text-muted">
 					Last updated:{" "}
-					<code className="rounded bg-accent-soft px-1 py-0.5 text-accent">2026-06-01</code>
+					<code className="rounded bg-accent-soft px-1 py-0.5 text-accent">2026-07-27</code>
 				</p>
 			</main>
 			<Footer />

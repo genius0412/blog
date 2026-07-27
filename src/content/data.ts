@@ -63,8 +63,8 @@ export const profile: Profile = {
 	// so reordering this array reorders the card. Six divides evenly at every
 	// breakpoint of the home StatStrip (2 / 3 / 6).
 	stats: [
-		{ value: "2", label: "Published papers (arXiv)" },
-		{ value: "2nd", label: "FTC Worlds — Motivate Award" },
+		{ value: "2", label: "Published papers" },
+		{ value: "2nd", label: "FTC Worlds (Motivate)" },
 		{ value: "Gold", label: "USACO 2026" },
 		{ value: "141/150", label: "AMC 10A 2024" },
 		{ value: "1737", label: "Codeforces rating" },

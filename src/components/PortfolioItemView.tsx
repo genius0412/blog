@@ -94,9 +94,13 @@ export default async function PortfolioItemView({ item }: { item: PortfolioItem 
 		</>
 	);
 
+	// h-full so cards in the home page's 3-column grid fill their stretched row
+	// instead of each ending at its own content height — DSIM's longer body left
+	// the two beside it visibly short. No effect in the portfolio's stacked list,
+	// where the parent height is auto.
 	return (
 		<div
-			className={`rounded-2xl border border-l-4 border-border ${cs.barL} bg-surface p-5 shadow-soft transition-shadow hover:shadow-lift`}
+			className={`h-full rounded-2xl border border-l-4 border-border ${cs.barL} bg-surface p-5 shadow-soft transition-shadow hover:shadow-lift`}
 		>
 			{body}
 		</div>
