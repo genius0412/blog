@@ -6,11 +6,14 @@ import PortfolioJumpNav from "@/components/PortfolioJumpNav";
 import Pill from "@/components/ui/Pill";
 import { categoryStyle } from "@/components/ui/categoryStyle";
 import Footer from "@/components/Footer";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
 	title: "Portfolio",
-	description: "A full overview of Dohun Kim's work across research, robotics, math, code, music, and athletics.",
-};
+	description:
+		"A full overview of Dohun Kim's work across math research, FTC robotics, competition math, competitive programming, software, music, and athletics.",
+	path: "/portfolio",
+});
 
 export default function PortfolioPage() {
 	return (

@@ -26,10 +26,15 @@ const Header = () => {
 					aria-current={onHome ? "page" : undefined}
 					className="flex items-center gap-3 rounded-md"
 				>
+					{/* Explicit 36px box: without it the static import's intrinsic
+					    2402px dimensions make the browser fetch a 3840w variant for
+					    a 36px avatar on every page. */}
 					<Image
 						src={ProfilePicture}
 						alt=""
 						aria-hidden
+						width={36}
+						height={36}
 						className="h-9 w-9 rounded-full border border-border object-cover"
 					/>
 					<span className="font-serif text-lg font-semibold text-ink">Dohun Kim</span>

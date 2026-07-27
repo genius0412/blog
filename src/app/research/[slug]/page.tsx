@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { loadDetail, detailParamsForGroup } from "@/content/mdx";
+import { detailParamsForGroup } from "@/content/mdx";
+import { detailMetadata } from "@/lib/detailSeo";
 import DetailStandalone from "@/components/DetailStandalone";
 
 const GROUP = "research" as const;
@@ -9,8 +10,7 @@ export function generateStaticParams() {
 }
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-	const doc = loadDetail(GROUP, params.slug);
-	return { title: doc?.meta.title, description: doc?.meta.description };
+	return detailMetadata(GROUP, params.slug);
 }
 
 export default function Page({ params }: { params: { slug: string } }) {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { profile, featuredHighlightIds, itemById } from "@/content/data";
@@ -8,6 +9,14 @@ import StatStrip from "@/components/StatStrip";
 import SectionPreview from "@/components/SectionPreview";
 import PortfolioItemView from "@/components/PortfolioItemView";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { SITE_NAME, SITE_URL, absoluteUrl, pageMetadata, personJsonLd } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+	description:
+		"Dohun Kim is a high school junior in Weston, MA — published math research through MIT PRIMES STEP, FTC robotics co-captain, USACO Gold, and a builder of web and simulation software.",
+	path: "/",
+});
 
 export default function Home() {
 	const highlights = featuredHighlightIds
@@ -16,6 +25,31 @@ export default function Home() {
 
 	return (
 		<>
+			<JsonLd
+				data={{
+					"@graph": [
+						personJsonLd,
+						{
+							"@type": "WebSite",
+							"@id": `${SITE_URL}/#website`,
+							url: SITE_URL,
+							name: SITE_NAME,
+							description: profile.tagline,
+							inLanguage: "en-US",
+							publisher: { "@id": `${SITE_URL}/#person` },
+						},
+						{
+							"@type": "ProfilePage",
+							"@id": `${SITE_URL}/#profilepage`,
+							url: SITE_URL,
+							name: `${SITE_NAME} — Math Research, Robotics & Software`,
+							isPartOf: { "@id": `${SITE_URL}/#website` },
+							about: { "@id": `${SITE_URL}/#person` },
+							primaryImageOfPage: absoluteUrl("/images/profile.jpg"),
+						},
+					],
+				}}
+			/>
 			<main id="main-content" tabIndex={-1} className="mx-auto max-w-5xl px-5 sm:px-8">
 				{/* Hero */}
 				<section className="relative pb-14 pt-16 sm:pt-24">

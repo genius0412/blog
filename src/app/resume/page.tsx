@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { FiDownload } from "react-icons/fi";
 import Footer from "@/components/Footer";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
 	title: "Résumé",
-	description: "Dohun Kim's résumé.",
-};
+	description:
+		"Dohun Kim's résumé — math research, FTC robotics leadership, competitive programming, and software projects. Viewable in-page or downloadable as a PDF.",
+	path: "/resume",
+});
 
 // Plain, document-first résumé page (spec §7). Displays the uploaded
 // public/resume.pdf with a prominent Download button. No generation step —
