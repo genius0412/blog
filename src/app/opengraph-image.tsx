@@ -21,9 +21,34 @@ const CREAM = "#faf8f5";
 const MUTED = "#a49d94";
 const ACCENT = "#e0824c";
 const HAIRLINE = "rgba(250,248,245,0.14)";
+// Low enough to stay invisible where the grid crosses the portrait, high enough
+// to read as tooth on the ink.
+const GRID_LINE = "rgba(250,248,245,0.038)";
 
 /** Width of the portrait panel on the right edge. */
 const PHOTO_W = 424;
+
+/** Graph-paper pitch, px. Drawn as individual rules rather than a repeating
+ *  gradient because satori's gradient parser doesn't handle those. */
+const GRID_PITCH = 48;
+const GRID_X = Array.from({ length: Math.ceil(size.width / GRID_PITCH) }, (_, i) => (i + 1) * GRID_PITCH);
+const GRID_Y = Array.from({ length: Math.ceil(size.height / GRID_PITCH) }, (_, i) => (i + 1) * GRID_PITCH);
+
+/** Corner crop marks. */
+const MARK_INSET = 40;
+const MARK_LEN = 46;
+const MARK_W = 3;
+const MARK_COLOR = "rgba(224,130,76,0.7)";
+
+const fill = (extra: Record<string, unknown>) => ({
+	position: "absolute" as const,
+	display: "flex" as const,
+	top: 0,
+	left: 0,
+	right: 0,
+	bottom: 0,
+	...extra,
+});
 
 /**
  * Fetch one Google font as a TTF that satori can parse.
@@ -99,8 +124,10 @@ export default async function OpengraphImage() {
 					fontFamily: sansFamily,
 				}}
 			>
-				{/* Portrait, bled off the right edge and faded into the ground so it
-				    reads as part of the card rather than a pasted-on box. */}
+				{/* ── Portrait ──────────────────────────────────────────────────────
+				    Bled off the right edge and faded into the ground so it reads as
+				    part of the card rather than a pasted-on box. Drawn first so the
+				    graph-paper grid can run across it. */}
 				{portrait ? (
 					<div
 						style={{
@@ -121,21 +148,69 @@ export default async function OpengraphImage() {
 							style={{ width: PHOTO_W, height: size.height, objectFit: "cover" }}
 						/>
 						<div
-							style={{
-								position: "absolute",
-								top: 0,
-								left: 0,
-								right: 0,
-								bottom: 0,
-								display: "flex",
+							style={fill({
 								backgroundImage:
 									"linear-gradient(to right, rgba(31,36,33,1) 2%, rgba(31,36,33,0.62) 38%, rgba(31,36,33,0.28) 100%)",
-							}}
+							})}
+						/>
+						{/* Warm veil. The photo's background is green, which fought the
+						    terracotta palette; a low-alpha wash pulls it into the same
+						    family without pushing skin tones orange. It has to fade out
+						    to the left on the same curve as the dark gradient above —
+						    tinting the panel's left edge, where the photo is already
+						    fully covered, drew a visible vertical step against the ink. */}
+						<div
+							style={fill({
+								backgroundImage:
+									"linear-gradient(to right, rgba(224,130,76,0) 6%, rgba(224,130,76,0.12) 45%, rgba(224,130,76,0.22) 100%)",
+							})}
 						/>
 					</div>
 				) : null}
 
-				{/* Content column */}
+				{/* ── Graph-paper texture ───────────────────────────────────────────
+				    A faint engineering grid for a page about math and robots, not
+				    wallpaper. Runs over the portrait as well: stopping it at the
+				    photo's edge left a visible vertical seam where the texture simply
+				    ended. At this alpha it's tooth on the ink and invisible on skin. */}
+				{GRID_X.map((x) => (
+					<div
+						key={`v${x}`}
+						style={{
+							position: "absolute",
+							top: 0,
+							bottom: 0,
+							left: x,
+							width: 1,
+							display: "flex",
+							backgroundColor: GRID_LINE,
+						}}
+					/>
+				))}
+				{GRID_Y.map((y) => (
+					<div
+						key={`h${y}`}
+						style={{
+							position: "absolute",
+							left: 0,
+							right: 0,
+							top: y,
+							height: 1,
+							display: "flex",
+							backgroundColor: GRID_LINE,
+						}}
+					/>
+				))}
+
+				{/* ── Crop marks ────────────────────────────────────────────────────
+				    Opposite corners only. The bottom-right one sits over the portrait
+				    on purpose: it frames the whole card, not the text column. */}
+				<div style={{ position: "absolute", top: MARK_INSET, left: MARK_INSET, width: MARK_LEN, height: MARK_W, display: "flex", backgroundColor: MARK_COLOR }} />
+				<div style={{ position: "absolute", top: MARK_INSET, left: MARK_INSET, width: MARK_W, height: MARK_LEN, display: "flex", backgroundColor: MARK_COLOR }} />
+				<div style={{ position: "absolute", bottom: MARK_INSET, right: MARK_INSET, width: MARK_LEN, height: MARK_W, display: "flex", backgroundColor: MARK_COLOR }} />
+				<div style={{ position: "absolute", bottom: MARK_INSET, right: MARK_INSET, width: MARK_W, height: MARK_LEN, display: "flex", backgroundColor: MARK_COLOR }} />
+
+				{/* ── Content ───────────────────────────────────────────────────────*/}
 				<div
 					style={{
 						position: "relative",
@@ -143,23 +218,22 @@ export default async function OpengraphImage() {
 						flexDirection: "column",
 						justifyContent: "space-between",
 						width: "100%",
-						padding: "62px 72px 56px",
+						padding: "70px 72px 60px",
 						paddingRight: 72 + contentRight,
 					}}
 				>
-					{/* Eyebrow */}
-					<div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-						<div style={{ display: "flex", width: 34, height: 3, backgroundColor: ACCENT }} />
-						<div
-							style={{
-								fontSize: 20,
-								letterSpacing: "0.2em",
-								color: MUTED,
-								textTransform: "uppercase",
-							}}
-						>
-							dohunkim.xyz
-						</div>
+					{/* Eyebrow. No accent dash here — the crop mark directly above it
+					    already carries the accent, and two strokes in one corner read
+					    as clutter. */}
+					<div
+						style={{
+							fontSize: 20,
+							letterSpacing: "0.22em",
+							color: MUTED,
+							textTransform: "uppercase",
+						}}
+					>
+						dohunkim.xyz
 					</div>
 
 					{/* Name + tagline */}
@@ -176,9 +250,12 @@ export default async function OpengraphImage() {
 						>
 							{profile.name}
 						</div>
+						{/* Short accent rule under the name, tying the display type back
+						    to the crop marks and the stat values. */}
+						<div style={{ display: "flex", marginTop: 22, width: 84, height: 4, backgroundColor: ACCENT }} />
 						<div
 							style={{
-								marginTop: 20,
+								marginTop: 22,
 								fontSize: 29,
 								lineHeight: 1.3,
 								color: MUTED,
@@ -197,6 +274,7 @@ export default async function OpengraphImage() {
 							flexWrap: "wrap",
 							borderTop: `1px solid ${HAIRLINE}`,
 							borderLeft: `1px solid ${HAIRLINE}`,
+							backgroundColor: "rgba(250,248,245,0.028)",
 						}}
 					>
 						{stats.map((s) => (
