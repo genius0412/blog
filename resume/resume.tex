@@ -8,7 +8,7 @@
 \usepackage{amssymb}
 \usepackage[colorlinks=true,urlcolor=themecolor,linkcolor=themecolor]{hyperref}
 \usepackage{microtype}
-\linespread{0.96}
+\linespread{0.945}
 
 % Maroon theme color used for the name-rule, section headings, and links.
 \definecolor{themecolor}{HTML}{8A1F2B}
@@ -20,8 +20,8 @@
 % ---- Section formatting: maroon bold heading + full-width rule ----
 \titleformat{\section}
   {\color{themecolor}\normalfont\large\bfseries}
-  {}{0em}{}[\color{themecolor}\titlerule\vspace{-2pt}]
-\titlespacing*{\section}{0pt}{4pt}{2pt}
+  {}{0em}{}[\color{themecolor}\titlerule]
+\titlespacing*{\section}{0pt}{4pt}{3pt}
 
 % ---- Helpers ----
 % A two-column row on a single line: left text flush-left, right flush-right.
@@ -39,7 +39,7 @@
 % A single-line entry: bold title (left) / plain dates (right).
 \newcommand{\entryline}[2]{\tworow{\textbf{#1}}{#2}}
 
-\setlist[itemize]{leftmargin=1.2em,topsep=2pt,itemsep=1.5pt,parsep=0pt}
+\setlist[itemize]{leftmargin=1.2em,topsep=2pt,itemsep=1pt,parsep=0pt}
 
 \begin{document}
 
