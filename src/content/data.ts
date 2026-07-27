@@ -436,11 +436,11 @@ export const items: PortfolioItem[] = [
 		badge: "GPA 4.0 (unweighted)",
 		description: "AP coursework & exam results:",
 		tags: [
-			"AP Physics C: Mechanics & E&M — A",
+			"AP Physics C: Mechanics & E&M — A, 5",
 			"AP Calculus BC — 5",
 			"AP Computer Science A — 5",
-			"AP Statistics — A",
-			"AP World History — A",
+			"AP Statistics — A, 5",
+			"AP World History — A, 5",
 		],
 	},
 	{
