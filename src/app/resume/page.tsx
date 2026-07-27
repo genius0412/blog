@@ -32,7 +32,7 @@ export default function ResumePage() {
 				<div className="mt-6 overflow-hidden rounded-2xl border border-border bg-surface shadow-soft">
 					<iframe
 						src="/resume.pdf"
-						title="Dohun Kim — Résumé"
+						title="Dohun Kim: Résumé"
 						className="h-[80vh] w-full"
 					/>
 				</div>

@@ -91,7 +91,7 @@ export const items: PortfolioItem[] = [
 	// ── Research & Academic ──────────────────────────────────────────────
 	{
 		id: "primes-step",
-		title: "MIT PRIMES STEP — Senior Group",
+		title: "MIT PRIMES STEP: Senior Group",
 		org: "MIT PRIMES",
 		role: "Math researcher",
 		start: "2024",
@@ -130,7 +130,7 @@ export const items: PortfolioItem[] = [
 	// ── Robotics ─────────────────────────────────────────────────────────
 	{
 		id: "ftc-leadership",
-		title: "FTC #22489 — Galactic Narwhal Chicken Effect (Diamond, Weston)",
+		title: "FTC #22489: Galactic Narwhal Chicken Effect (Diamond, Weston)",
 		role: "Co-Captain (2025–2026); team member (2024–2025)",
 		start: "2024",
 		end: "2026",
@@ -140,7 +140,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "ftc-worlds",
-		title: "FTC World Championship — Motivate Award, 2nd",
+		title: "FTC World Championship: Motivate Award, 2nd",
 		org: "FIRST (Jemison Division)",
 		start: "2025",
 		end: "2025",
@@ -151,7 +151,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "mti-2026",
-		title: "Multinational Tech Invitational 2026 — Mechatronics Synergy Award Winner",
+		title: "Multinational Tech Invitational 2026: Mechatronics Synergy Award Winner",
 		start: "2026",
 		end: "2026",
 		category: "robotics",
@@ -163,7 +163,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "mti",
-		title: "Maryland Tech Invitational — Hardware Mastery Honorable Mention",
+		title: "Maryland Tech Invitational: Hardware Mastery Honorable Mention",
 		start: "2025",
 		end: "2025",
 		category: "robotics",
@@ -171,7 +171,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "michiana",
-		title: "Michiana Premier Event 2026 — Croft Division Finalist & Control Award (1st)",
+		title: "Michiana Premier Event 2026: Croft Division Finalist & Control Award (1st)",
 		start: "2026",
 		end: "2026",
 		category: "robotics",
@@ -182,7 +182,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "weston-robotics-council",
-		title: "Weston Robotics — Planning Council & Program-Wide Mentor",
+		title: "Weston Robotics: Planning Council & Program-Wide Mentor",
 		start: "2026",
 		end: "present",
 		category: "robotics",
@@ -190,7 +190,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "fll-mentor",
-		title: "Volunteer FLL Mentor — \"Butterfly Effect\" & \"LegoImpossible\"",
+		title: "Volunteer FLL Mentor: \"Butterfly Effect\" & \"LegoImpossible\"",
 		start: "2024",
 		end: "2026",
 		category: "robotics",
@@ -198,7 +198,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "into-the-deep",
-		title: "Into the Deep — Open-Source Claw CAD",
+		title: "Into the Deep: Open-Source Claw CAD",
 		role: "Claw CAD / mechanical design",
 		start: "2024",
 		end: "2025",
@@ -214,7 +214,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "decode-pto",
-		title: "DECODE — Clutch PTO Lift & Drivetrain",
+		title: "DECODE: Clutch PTO Lift & Drivetrain",
 		role: "Drivetrain + clutch power-take-off (PTO) lift",
 		start: "2025",
 		end: "2026",
@@ -232,14 +232,14 @@ export const items: PortfolioItem[] = [
 	// ── Mathematics ──────────────────────────────────────────────────────
 	{
 		id: "fma-2026",
-		title: "F=ma 2026 — 15/25",
+		title: "F=ma 2026: 15/25",
 		start: "2026",
 		end: "2026",
 		category: "math",
 	},
 	{
 		id: "amc10a-2024",
-		title: "AMC 10A 2024 — 141/150",
+		title: "AMC 10A 2024: 141/150",
 		start: "2024",
 		end: "2024",
 		category: "math",
@@ -247,28 +247,28 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "aime-2025",
-		title: "AIME II 2025 — 9/15",
+		title: "AIME II 2025: 9/15",
 		start: "2025",
 		end: "2025",
 		category: "math",
 	},
 	{
 		id: "maml",
-		title: "MAML Olympiad Level 1 — 2nd in Massachusetts (24/25)",
+		title: "MAML Olympiad Level 1: 2nd in Massachusetts (24/25)",
 		start: "2024",
 		end: "2024",
 		category: "math",
 	},
 	{
 		id: "imlem",
-		title: "IMLEM (Weston MS) — #1 individual, perfect scores across all 5 meets",
+		title: "IMLEM (Weston MS): #1 individual, perfect scores across all 5 meets",
 		start: "2022",
 		end: "2023",
 		category: "math",
 	},
 	{
 		id: "amc-2023",
-		title: "AMC 12B / 10A 2023 — 102/150 & 117.5/150 (both advanced to AIME)",
+		title: "AMC 12B / 10A 2023: 102/150 & 117.5/150 (both advanced to AIME)",
 		start: "2023",
 		end: "2023",
 		category: "math",
@@ -277,7 +277,7 @@ export const items: PortfolioItem[] = [
 	// ── Competitive Programming ──────────────────────────────────────────
 	{
 		id: "usaco-gold",
-		title: "USACO 2026 — advanced to Gold (900/1000)",
+		title: "USACO 2026: advanced to Gold (900/1000)",
 		start: "2026",
 		end: "2026",
 		category: "cp",
@@ -285,7 +285,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "codeforces",
-		title: "Codeforces — rating 1737",
+		title: "Codeforces: rating 1737",
 		role: "genius0412",
 		start: "2024",
 		end: "present",
@@ -295,28 +295,28 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "mitit",
-		title: "MITIT Winter 2023 — 2nd, Beginner Division (team)",
+		title: "MITIT Winter 2023: 2nd, Beginner Division (team)",
 		start: "2023",
 		end: "2023",
 		category: "cp",
 	},
 	{
 		id: "usaco-guide-tournament",
-		title: "USACO.guide Informatics Tournament 2024 — 8th, solo",
+		title: "USACO.guide Informatics Tournament 2024: 8th, solo",
 		start: "2024",
 		end: "2024",
 		category: "cp",
 	},
 	{
 		id: "koi",
-		title: "Korean Olympiad in Informatics — Silver (National 2021; Regional 2021 & 2022)",
+		title: "Korean Olympiad in Informatics: Silver (National 2021; Regional 2021 & 2022)",
 		start: "2021",
 		end: "2022",
 		category: "cp",
 	},
 	{
 		id: "early-cp",
-		title: "National Software Thinking Olympiad — Bronze (2019); USACO Silver, perfect 1000 (2019)",
+		title: "National Software Thinking Olympiad: Bronze (2019); USACO Silver, perfect 1000 (2019)",
 		start: "2019",
 		end: "2019",
 		category: "cp",
@@ -327,7 +327,7 @@ export const items: PortfolioItem[] = [
 		id: "dsim",
 		// Matches the product's own name on playdsim.com. The old title said
 		// "Real-Time 2-Player", which undersold it — solo, duo, 1v1 and 2v2 all ship.
-		title: "DSIM — Online 2D FTC Driving Simulator",
+		title: "DSIM: Online 2D FTC Driving Simulator",
 		org: "DSIM",
 		role: "Founder & Main Programmer",
 		start: "2025",
@@ -382,7 +382,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "a11y-checker",
-		title: "A11y Checker — Congressional App Challenge, 2nd place",
+		title: "A11y Checker: Congressional App Challenge, 2nd place",
 		start: "2024",
 		end: "2024",
 		category: "software",
@@ -401,7 +401,7 @@ export const items: PortfolioItem[] = [
 	// ── Music ────────────────────────────────────────────────────────────
 	{
 		id: "town-criers",
-		title: "Weston Town Criers (a cappella) — soloist on \"500 Miles\"",
+		title: "Weston Town Criers (a cappella): soloist on \"500 Miles\"",
 		role: "Soloist",
 		start: "2025",
 		end: "2026",
@@ -410,12 +410,12 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "choirs",
-		title: "Concert Choir & Jazz Choir — Weston High School",
+		title: "Concert Choir & Jazz Choir: Weston High School",
 		category: "music",
 	},
 	{
 		id: "mmea",
-		title: "MMEA Districts — Junior 7th (tenor) & 8th (bass); Senior 9th & 10th (bass)",
+		title: "MMEA Districts: Junior 7th (tenor) & 8th (bass); Senior 9th & 10th (bass)",
 		category: "music",
 	},
 
@@ -445,7 +445,7 @@ export const items: PortfolioItem[] = [
 	},
 	{
 		id: "hanyang",
-		title: "Hanyang University — Gifted & Talented Center for Informatics, Seoul",
+		title: "Hanyang University: Gifted & Talented Center for Informatics, Seoul",
 		role: "Advanced Course in Informatics",
 		start: "2020",
 		end: "2021",

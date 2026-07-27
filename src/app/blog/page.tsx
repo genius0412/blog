@@ -22,7 +22,7 @@ export default async function Blog() {
 					"@type": "Blog",
 					"@id": absoluteUrl("/blog#blog"),
 					url: absoluteUrl("/blog"),
-					name: `${SITE_NAME} — Blog`,
+					name: `${SITE_NAME}: Blog`,
 					description: "Notes on building things.",
 					inLanguage: "en-US",
 					author: { "@id": `${SITE_URL}/#person` },

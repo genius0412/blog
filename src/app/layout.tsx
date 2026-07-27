@@ -23,7 +23,7 @@ const description =
 export const metadata: Metadata = {
 	metadataBase: new URL(SITE_URL),
 	title: {
-		default: "Dohun Kim — Math Research, Robotics & Software",
+		default: "Dohun Kim: Math Research, Robotics & Software",
 		template: "%s · Dohun Kim",
 	},
 	description,
@@ -49,12 +49,12 @@ export const metadata: Metadata = {
 		url: SITE_URL,
 		siteName: SITE_NAME,
 		locale: SITE_LOCALE,
-		title: "Dohun Kim — Math Research, Robotics & Software",
+		title: "Dohun Kim: Math Research, Robotics & Software",
 		description,
 	},
 	twitter: {
 		card: "summary_large_image",
-		title: "Dohun Kim — Math Research, Robotics & Software",
+		title: "Dohun Kim: Math Research, Robotics & Software",
 		description,
 	},
 	robots: {

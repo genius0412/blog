@@ -42,7 +42,7 @@ export default function Home() {
 							"@type": "ProfilePage",
 							"@id": `${SITE_URL}/#profilepage`,
 							url: SITE_URL,
-							name: `${SITE_NAME} — Math Research, Robotics & Software`,
+							name: `${SITE_NAME}: Math Research, Robotics & Software`,
 							isPartOf: { "@id": `${SITE_URL}/#website` },
 							about: { "@id": `${SITE_URL}/#person` },
 							primaryImageOfPage: absoluteUrl("/images/profile.jpg"),
@@ -120,7 +120,6 @@ export default function Home() {
 				<section className="py-14">
 					<FadeIn>
 						<h2 className="font-serif text-2xl font-semibold text-ink">Explore</h2>
-						<p className="mt-1 text-muted">Each area opens into the full list.</p>
 					</FadeIn>
 					<FadeIn className="mt-6">
 						<SectionPreview />
@@ -130,7 +129,7 @@ export default function Home() {
 				{/* Featured highlights */}
 				<section className="border-t border-border py-14">
 					<FadeIn>
-						<h2 className="font-serif text-2xl font-semibold text-ink">A few highlights</h2>
+						<h2 className="font-serif text-2xl font-semibold text-ink">Featured</h2>
 					</FadeIn>
 					<div className="mt-6 grid grid-cols-1 gap-5 md:grid-cols-3">
 						{highlights.map((item, i) => (

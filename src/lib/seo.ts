@@ -11,7 +11,7 @@ export const SITE_LOCALE = "en_US";
 // Served by src/app/opengraph-image.tsx. Keep the alt text in sync with the
 // `alt` export there.
 export const OG_IMAGE_PATH = "/opengraph-image";
-export const OG_IMAGE_ALT = "Dohun Kim — math research, robotics, and software";
+export const OG_IMAGE_ALT = "Dohun Kim: math research, robotics, and software";
 
 export const githubUrl = `https://github.com/${profile.github}`;
 export const linkedinUrl = `https://linkedin.com/in/${profile.linkedin}`;
