@@ -3,7 +3,7 @@ import { profile } from "@/content/data";
 // Quick credibility numbers (spec §5.1.3).
 export default function StatStrip() {
 	return (
-		<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
+		<div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
 			{profile.stats.map((stat) => (
 				<div
 					key={stat.label}

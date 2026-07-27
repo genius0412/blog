@@ -59,12 +59,16 @@ export const profile: Profile = {
 		{ group: "Languages", items: ["English (Fluent)", "Korean (Fluent)", "Spanish (Intermediate)"] },
 		{ group: "Frameworks & Tools", items: ["React", "Next.js", "Onshape (CAD)"] },
 	],
+	// Ordered by weight, strongest first — the social card renders these in order,
+	// so reordering this array reorders the card. Six divides evenly at every
+	// breakpoint of the home StatStrip (2 / 3 / 6).
 	stats: [
 		{ value: "2", label: "Published papers (arXiv)" },
-		{ value: "Gold", label: "USACO 2026" },
-		{ value: "1737", label: "Codeforces rating" },
-		{ value: "141/150", label: "AMC 10A 2024" },
 		{ value: "2nd", label: "FTC Worlds — Motivate Award" },
+		{ value: "Gold", label: "USACO 2026" },
+		{ value: "141/150", label: "AMC 10A 2024" },
+		{ value: "1737", label: "Codeforces rating" },
+		{ value: "4.0", label: "GPA (unweighted)" },
 	],
 };
 
