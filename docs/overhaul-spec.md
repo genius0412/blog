@@ -79,7 +79,7 @@ Top to bottom:
    - Name: **Dohun Kim**.
    - A short tagline conveying range without leading with "developer" (final copy at Dohun's discretion; provide an editable string).
    - One-line positioning sentence: high school junior in Weston, MA.
-   - Primary links/buttons: **Résumé** (→ `/resume`), **GitHub** (`github.com/genius0412`), **Email** (`dohunkimofficial@gmail.com`).
+   - Primary links/buttons: **Résumé** (→ `/resume`), **GitHub** (`github.com/genius0412`), **Email** (`dohunk07@gmail.com`).
    - Gentle entrance animation; warm background, maybe a soft amber accent shape — restrained.
 
 2. **Intro blurb** (2–4 sentences)
@@ -255,7 +255,7 @@ Render order on a detail page: title + date → description → role → links �
 - Hanyang University — Gifted & Talented Center for Informatics, Seoul (Advanced Course in Informatics), 2020–2021: graduated #1 of 95 and youngest in cohort; selected for a 1-on-1 AI course under Prof. Ki Hyuk Sung.
 
 **Profile**
-- name: Dohun Kim · location: Weston, MA · email: `dohunkimofficial@gmail.com` · github: `genius0412`.
+- name: Dohun Kim · location: Weston, MA · email: `dohunk07@gmail.com` · github: `genius0412`.
 - skills — Programming: C/C++, JavaScript/TypeScript, Python, Java. Languages: English (Fluent), Korean (Fluent), Spanish (Intermediate). Frameworks/Tools: React, Next.js, Onshape (CAD).
 - stats: pick 5 strongest (see §5.1).
 

@@ -49,7 +49,7 @@ export const profile: Profile = {
 	tagline: "Math research, FTC robotics, and competitive programming.",
 	positioning: "Junior at Weston High School, just outside Boston.",
 	location: "Weston, MA",
-	email: "dohunkimofficial@gmail.com",
+	email: "dohunk07@gmail.com",
 	github: "genius0412",
 	linkedin: "traverse",
 	intro:
