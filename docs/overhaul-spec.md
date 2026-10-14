@@ -263,11 +263,11 @@ Render order on a detail page: title + date → description → role → links �
 
 ## 7. Résumé (static PDF)
 
-- Dohun maintains the résumé himself (currently a LaTeX-built PDF) and **uploads `resume.pdf`** into the repo (e.g. `public/resume.pdf`). **No auto-generation, no build step, no print-CSS route.**
-- `/resume` shows the PDF in a simple inline viewer (e.g. an `<embed>`/`<iframe>` of `public/resume.pdf`, or a styled "open / download" card with a thumbnail) plus a prominent **Download** button linking to `/resume.pdf`.
+- Dohun maintains the résumé himself (currently a LaTeX-built PDF) and **uploads `resume.pdf`** into the repo (e.g. `public/Dohun_Kim_Resume.pdf`). **No auto-generation, no build step, no print-CSS route.**
+- `/resume` shows the PDF in a simple inline viewer (e.g. an `<embed>`/`<iframe>` of `public/Dohun_Kim_Resume.pdf`, or a styled "open / download" card with a thumbnail) plus a prominent **Download** button linking to `/Dohun_Kim_Resume.pdf`.
 - The header's **Résumé** button links to `/resume`.
 - Keep the page plain and document-first; it should feel part of the site (same fonts/spacing) but carry no animation or cards beyond the viewer + download control.
-- To update the résumé later, Dohun replaces `public/resume.pdf` — nothing else changes.
+- To update the résumé later, Dohun replaces `public/Dohun_Kim_Resume.pdf` — nothing else changes.
 
 ---
 
@@ -281,5 +281,5 @@ Render order on a detail page: title + date → description → role → links �
 - [ ] Tiering enforced: line / rich / deep; **no MDX file → no "read more"**; no empty detail pages.
 - [ ] Detail content in MDX using the shared frontmatter schema; warm/narrative voice; starter pages scaffolded with **placeholders** (no invented paper/CAD explanations).
 - [ ] All content rendered from the typed data module; facts match the final résumé.
-- [ ] `/resume` displays the uploaded `public/resume.pdf` with a Download button; no generation step.
+- [ ] `/resume` displays the uploaded `public/Dohun_Kim_Resume.pdf` with a Download button; no generation step.
 - [ ] Blog restyled to match.

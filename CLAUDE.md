@@ -51,7 +51,7 @@ Separate from the portfolio/detail system. Posts are Markdown in `src/posts/*.md
 
 ### Résumé (`/resume`)
 
-`app/resume/page.tsx` embeds a **static** `public/resume.pdf` (Dohun uploads it; no generation step) with a Download button. The file may not be present yet — the page shows a fallback note when the viewer is blank.
+`app/resume/page.tsx` embeds a **static** `public/Dohun_Kim_Resume.pdf` (built from `resume/resume.tex`; see `resume/README.md`) with a Download button. **The filename is deliberate:** Vercel serves static files with `Content-Disposition: inline; filename="<file name>"`, which overrides the link's `download` attribute and names saves from the embedded viewer, so the file's own name is what visitors get. `/resume.pdf` redirects to it (`next.config.mjs`).
 
 ## Conventions
 

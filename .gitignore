@@ -36,5 +36,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Résumé build artifact (source is resume/resume.tex; deployed copy is public/resume.pdf)
+# Résumé build artifact (source is resume/resume.tex; deployed copy is public/Dohun_Kim_Resume.pdf)
 /resume/resume.pdf

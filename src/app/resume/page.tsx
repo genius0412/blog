@@ -14,9 +14,18 @@ export const metadata: Metadata = pageMetadata({
 });
 
 /**
+ * The served filename is what visitors end up saving. Vercel sends static files
+ * with `Content-Disposition: inline; filename="<name>"`, which outranks the
+ * link's `download` attribute and also names saves from the embedded viewer —
+ * so the file itself has to carry the name. /resume.pdf redirects here
+ * (next.config.mjs).
+ */
+const RESUME_FILE = "Dohun_Kim_Resume.pdf";
+
+/**
  * A short hash of the PDF's contents, appended to its URL.
  *
- * /resume.pdf is a fixed path, so replacing the file leaves browsers, the
+ * The PDF lives at a fixed path, so replacing the file leaves browsers, the
  * embedded PDF viewer, and Vercel's CDN serving whatever they cached the first
  * time — a new résumé silently doesn't appear. Keying the URL to the bytes
  * means the URL changes exactly when the file does, and never otherwise.
@@ -25,7 +34,7 @@ export const metadata: Metadata = pageMetadata({
  */
 function resumeVersion(): string {
 	try {
-		const buf = fs.readFileSync(path.join(process.cwd(), "public/resume.pdf"));
+		const buf = fs.readFileSync(path.join(process.cwd(), "public", RESUME_FILE));
 		return crypto.createHash("sha1").update(buf).digest("hex").slice(0, 8);
 	} catch {
 		return "";
@@ -33,11 +42,11 @@ function resumeVersion(): string {
 }
 
 // Plain, document-first résumé page (spec §7). Displays the uploaded
-// public/resume.pdf with a prominent Download button. No generation step —
-// to update, rebuild resume/resume.tex and copy it over public/resume.pdf.
+// public/Dohun_Kim_Resume.pdf with a prominent Download button. No generation
+// step — to update, rebuild resume/resume.tex and copy it over that file.
 export default function ResumePage() {
 	const v = resumeVersion();
-	const pdfUrl = v ? `/resume.pdf?v=${v}` : "/resume.pdf";
+	const pdfUrl = v ? `/${RESUME_FILE}?v=${v}` : `/${RESUME_FILE}`;
 
 	return (
 		<>
@@ -46,7 +55,7 @@ export default function ResumePage() {
 					<h1 className="font-serif text-4xl font-semibold text-ink">Résumé</h1>
 					<a
 						href={pdfUrl}
-						download="Dohun-Kim-Resume.pdf"
+						download={RESUME_FILE}
 						className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-soft transition-colors hover:bg-accent/90"
 					>
 						<FiDownload className="h-4 w-4" />
